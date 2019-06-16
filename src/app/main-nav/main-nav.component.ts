@@ -15,6 +15,12 @@ export class MainNavComponent {
       map(result => result.matches)
     );
 
+    otherTheme = false;
+
+    switchTheme() {
+      this.otherTheme = !this.otherTheme;
+    }
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 
 }
