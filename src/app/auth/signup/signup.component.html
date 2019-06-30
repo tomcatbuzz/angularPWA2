@@ -1,3 +1,83 @@
-<p>
-  signup works!
-</p>
+<section class="signup-form">
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field appearance="outline">
+      <mat-label>Your Email</mat-label>
+      <input
+        type="email"
+        matInput
+        ngModel
+        name="email"
+        email
+        required
+        #emailInput="ngModel">
+        <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">E-Mail is invalid.</mat-error>
+    </mat-form-field>
+    <section class="details">
+      <mat-slide-toggle
+        #toggle
+        class="detail-toggle"
+        color="primary">
+        Show Password Details
+      </mat-slide-toggle>
+    </section>
+    <div fxFlex>
+    <mat-form-field appearance="outline" [color]="passwordComponent.color">
+      <mat-label>Password</mat-label>
+      <mat-pass-toggle-visibility #toggleVisibility matSuffix></mat-pass-toggle-visibility>
+      <input matInput 
+             [type]="toggleVisibility.type"
+             required
+             ngModel
+             name="passwordComponent"
+             #password="ngModel">
+
+      <!--password hint-->
+       <mat-hint align="end" aria-live="polite">
+        {{password.value?.length}} / {{passwordComponent.max}}
+       </mat-hint>
+       <!--password error msgs-->
+       <mat-error *ngIf="password.hasError('required')">
+         Password is required
+       </mat-error>
+       <mat-error *ngIf="password.hasError('pattern')">
+         Password is not valid
+       </mat-error>
+    </mat-form-field>
+  
+       <!--@angular-material-extensions/password-strength's main component-->
+       <mat-password-strength 
+          #passwordComponent
+          (onStrengthChanged)="onStrengthChanged($event)"
+          [password]="password.value">
+       </mat-password-strength>   
+       <!--Password's strength info-->
+       <mat-password-strength-info
+          [enableScoreInfo]="true"
+          *ngIf="toggle.checked"
+          [passwordComponent]="passwordComponent">
+      </mat-password-strength-info>
+    </div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Your birthdate"
+        [matDatepicker]="picker"
+        [max]="maxDate"
+        ngModel
+        name="birthdate"
+        required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+      <button mat-raised-button (click)="openBottomSheet()">Terms And Conditions</button>
+      <mat-checkbox
+        ngModel
+        name="agree"
+        required
+        color="primary">Agree to Terms and Conditions</mat-checkbox>
+        <mat-hint><h4></h4></mat-hint>
+    <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Sign Up</button>
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+  </form>
+</section>
