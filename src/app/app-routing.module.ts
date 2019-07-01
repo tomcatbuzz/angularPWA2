@@ -28,7 +28,8 @@ const routes: Routes = [
     data: { animation: 'contact'}
   },
   {
-    
+    path: 'auth',
+    loadChildren: () => import('./auth/auth/auth.component')
   }
 ];
 
