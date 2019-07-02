@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotoShareComponent } from './photo-share.component';
+import { BasicScrollComponent } from './basic-scroll.component';
 
-describe('PhotoShareComponent', () => {
-  let component: PhotoShareComponent;
-  let fixture: ComponentFixture<PhotoShareComponent>;
+describe('BasicScrollComponent', () => {
+  let component: BasicScrollComponent;
+  let fixture: ComponentFixture<BasicScrollComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoShareComponent ]
+      declarations: [ BasicScrollComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PhotoShareComponent);
+    fixture = TestBed.createComponent(BasicScrollComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

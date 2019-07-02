@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" [class.deep-orange]="otherTheme">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'">
@@ -7,12 +7,24 @@
       <a mat-list-item routerLink="/" routerLinkActive="active" (click)="drawer.toggle()">
         <mat-icon>home</mat-icon>
         <span class="nav-caption">Home</span></a>
-      <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="drawer.toggle()">
-        <mat-icon>face</mat-icon>
-        <span class="nav-caption">About Me</span></a>
-      <a mat-list-item routerLink="/photo-share" routerLinkActive="active" (click)="drawer.toggle()">
-        <mat-icon>build</mat-icon>
+        <a mat-list-item *ngIf="!(isAuth$ | async)" routerLink="/about" routerLinkActive="active" (click)="drawer.toggle()">
+          <mat-icon>help_outline</mat-icon>
+          <span class="nav-caption">About</span></a>
+        <a mat-list-item *ngIf="!(isAuth$ | async)" routerLink="/signup" routerLinkActive="active" (click)="drawer.toggle()">
+          <mat-icon>face</mat-icon>
+          <span class="nav-caption">Register</span></a>
+        <a mat-list-item *ngIf="!(isAuth$ | async)" routerLink="/login" routerLinkActive="active" (click)="drawer.toggle()">
+          <mat-icon>input</mat-icon>
+          <span class="nav-caption">Login</span></a>
+        <a mat-list-item *ngIf="!(isAuth$ | async)" routerLink="/uploader" routerLinkActive="active" (click)="drawer.toggle()">
+          <mat-icon>build</mat-icon>
         <span class="nav-caption">Photo</span></a>
+        <mat-list-item>
+          <button *ngIf="isAuth$ | async" mat-icon-button (click)="onLogout()">
+            <mat-icon>eject</mat-icon>
+            <span class="nav-caption">Logout</span>
+          </button>
+        </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -29,9 +41,16 @@
       <span class="spacer"></span>
       <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a mat-button routerLink="/about" routerLinkActive="active">About Me</a>
-      <a mat-button routerLink="/photo-share" routerLinkActive="active">Photo</a>
+      <a mat-button *ngIf="!(isAuth$ | async)" routerLink="/login" routerLinkActive="active">Login</a>
+      <a mat-button *ngIf="!(isAuth$ | async)" routerLink="/signup" routerLinkActive="active">Register</a>
+      <a mat-button *ngIf="!(isAuth$ | async)" routerLink="/uploader" routerLinkActive="active">Photo</a>
+      <a mat-button *ngIf="!(isAuth$ | async)" style="cursor: pointer" (click)="onLogout()">Logout</a>
       <span fxFlex="nogrow">
-        <button mat-icon-button>
+        <button 
+          mat-icon-button
+          matTooltip="Switch Theme"
+          aria-label="Button that displays a tooltip when focused or hovered over"
+          matTooltipPosition="below">
           <mat-icon (click)="switchTheme()">format_color_fill</mat-icon>
         </button>
       </span>

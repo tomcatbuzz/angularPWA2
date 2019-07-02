@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
+import { UploaderComponent } from './uploader/uploader.component';
 
 const routes: Routes = [
   {
@@ -18,18 +20,14 @@ const routes: Routes = [
     data: { animation: 'about'}
   },
   {
-    path: 'photo-share',
-    loadChildren: () => import('./photo-share/photo-share.module').then(mod => mod.PhotoShareModule),
-    data: { animation: 'photo-share'}
+    path: 'uploader',
+    component: UploaderComponent,
+    data: { animation: 'photo-share'},
   },
   {
     path: 'contact',
     loadChildren: () => import('./contact/contact.module').then(mod => mod.ContactModule),
     data: { animation: 'contact'}
-  },
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth/auth.component')
   }
 ];
 

@@ -5,8 +5,6 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../app.reducer';
 import { UIService } from '../../shared/ui.service';
-import { SpinnerComponent } from '../../spinner/spinner.component';
-
 
 @Component({
   selector: 'app-login',
@@ -36,5 +34,6 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     });
+    console.log(this.loginForm);
   }
 }

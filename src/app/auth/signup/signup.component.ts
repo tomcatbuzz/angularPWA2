@@ -5,6 +5,8 @@ import { UIService } from '../../shared/ui.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../app.reducer';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { TermsComponent } from './terms/terms.component';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +23,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private uiService: UIService,
-    private store: Store<fromRoot.State>
+    private store: Store<fromRoot.State>,
+    private bottomSheet: MatBottomSheet
     ) { }
 
   ngOnInit() {
@@ -32,6 +35,10 @@ export class SignupComponent implements OnInit {
 
   onStrengthChanged(strength: number) {
     console.log('password strength = ', strength);
+  }
+
+  openBottomSheet(): void {
+    this.bottomSheet.open(TermsComponent);
   }
 
   onSubmit(form: NgForm) {
