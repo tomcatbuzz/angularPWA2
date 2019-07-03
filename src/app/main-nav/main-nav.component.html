@@ -18,7 +18,11 @@
           <span class="nav-caption">Login</span></a>
         <a mat-list-item *ngIf="!(isAuth$ | async)" routerLink="/uploader" routerLinkActive="active" (click)="drawer.toggle()">
           <mat-icon>build</mat-icon>
-        <span class="nav-caption">Photo</span></a>
+          <span class="nav-caption">Photo</span></a>
+        <a mat-list-item *ngIf="!(isAuth$ | async)" routerLink="/seed" routerLinkActive="active" (click)="drawer.toggle()">
+          <mat-icon>build</mat-icon>
+          <span class="nav-caption">Seed</span></a>
+        
         <mat-list-item>
           <button *ngIf="isAuth$ | async" mat-icon-button (click)="onLogout()">
             <mat-icon>eject</mat-icon>
@@ -44,6 +48,7 @@
       <a mat-button *ngIf="!(isAuth$ | async)" routerLink="/login" routerLinkActive="active">Login</a>
       <a mat-button *ngIf="!(isAuth$ | async)" routerLink="/signup" routerLinkActive="active">Register</a>
       <a mat-button *ngIf="!(isAuth$ | async)" routerLink="/uploader" routerLinkActive="active">Photo</a>
+      <a mat-button *ngIf="!(isAuth$ | async)" routerLink="/seed" routerLinkActive="active">Seed</a>
       <a mat-button *ngIf="!(isAuth$ | async)" style="cursor: pointer" (click)="onLogout()">Logout</a>
       <span fxFlex="nogrow">
         <button 

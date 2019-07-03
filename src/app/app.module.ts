@@ -23,8 +23,9 @@ import { reducers } from './app.reducer';
 import { DropzoneDirective } from './dropzone.directive';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { SeedComponent } from './seed/seed.component';
 // import { BasicScrollComponent } from './basic-scroll/basic-scroll.component';
-import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
+// import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,9 @@ import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.compo
     DropzoneDirective,
     UploaderComponent,
     UploadTaskComponent,
+    SeedComponent,
     // BasicScrollComponent,
-    InfiniteScrollComponent
+    // InfiniteScrollComponent
   ],
   imports: [
     BrowserModule,

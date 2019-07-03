@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { UploaderComponent } from './uploader/uploader.component';
+import { SeedComponent } from './seed/seed.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'uploader',
     component: UploaderComponent,
     data: { animation: 'photo-share'},
+  },
+  {
+    path: 'seed',
+    component: SeedComponent,
+    data: { animation: 'seed'},
   },
   {
     path: 'contact',

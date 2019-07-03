@@ -4,16 +4,17 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { BasicScrollComponent } from '../basic-scroll/basic-scroll.component';
 import { SharedModule } from '../shared/shared.module';
+import { InfiniteScrollComponent } from '../infinite-scroll/infinite-scroll.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, BasicScrollComponent],
+  declarations: [HomeComponent, BasicScrollComponent, InfiniteScrollComponent],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild([{ path: '', component: HomeComponent }])
   ],
-  entryComponents: [ BasicScrollComponent]
+  entryComponents: [ BasicScrollComponent, InfiniteScrollComponent]
 })
 export class HomeModule { }

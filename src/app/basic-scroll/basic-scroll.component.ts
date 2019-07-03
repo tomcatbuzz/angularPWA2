@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { emojiRandom } from '../emoji';
 import * as faker from 'faker';
 
