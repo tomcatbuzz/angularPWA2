@@ -15,11 +15,19 @@ export class SeedComponent implements OnInit {
   ngOnInit() {
   }
 
-  addPeople() {
-    return this.db.collection('people').add({
-      name: faker.name.findName(),
-      bio: faker.hacker.phrase(),
-      emoji: emojiRandom()
-    });
-  }
+  
+
+// people.forEach(function(obj) {
+//     this.db.collection("people").add({
+//       name: faker.name.findName(),
+//       bio: faker.hacker.phrase(),
+//       emoji: emojiRandom()
+//     }).then(function(docRef) {
+//         console.log("Document written with ID: ", docRef.id);
+//     })
+//     .catch(function(error) {
+//         console.error("Error adding document: ", error);
+//     });
+// });
+
 }
