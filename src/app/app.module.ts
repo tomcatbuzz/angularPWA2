@@ -23,7 +23,7 @@ import { reducers } from './app.reducer';
 import { DropzoneDirective } from './dropzone.directive';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
-import { SeedComponent } from './seed/seed.component';
+// import { SeedComponent } from './seed/seed.component';
 // import { BasicScrollComponent } from './basic-scroll/basic-scroll.component';
 // import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
 
@@ -33,8 +33,8 @@ import { SeedComponent } from './seed/seed.component';
     MainNavComponent,
     DropzoneDirective,
     UploaderComponent,
-    UploadTaskComponent,
-    SeedComponent,
+    UploadTaskComponent
+    // SeedComponent,
     // BasicScrollComponent,
     // InfiniteScrollComponent
   ],
